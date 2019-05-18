@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 
 from leader_board_functions import add_score, get_leaders, _min_score, ScoreNotEligible, is_score_eligible
 
+from settings import SERVER_HOST, SERVER_PORT
 app = Flask(__name__)
 
 
@@ -20,9 +21,8 @@ def getScores():
     return jsonify(response_data), 200
 
 
-@app.route('/isScoreEligible', methods=['GET'])
-def isScoreEligible():
-    score = int(request.args.get('score'))
+@app.route('/isScoreEligible/<int:score>', methods=['GET'])
+def isScoreEligible(score):
     if is_score_eligible(score):
         return "score is eligible", 200
     else:
@@ -44,4 +44,4 @@ def addScore():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', 5001)
+    app.run(SERVER_HOST, SERVER_PORT)

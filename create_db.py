@@ -1,8 +1,9 @@
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Float
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from settings import DB_URL
 
-engine = create_engine('postgresql://localhost:5433/leader_board')
+engine = create_engine(DB_URL)
 Base = declarative_base()
 Session = sessionmaker(bind=engine)
 
