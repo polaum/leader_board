@@ -1,1 +1,1 @@
-web: python3 ./leader_api.py
+web: python3 ./leaders_api.py
