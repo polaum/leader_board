@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 
 from leader_board_functions import add_score, get_leaders, _min_score, ScoreNotEligible, is_score_eligible
 
-from settings import SERVER_HOST, SERVER_PORT
+from settings import HOST, PORT
 app = Flask(__name__)
 
 
@@ -44,4 +44,4 @@ def addScore():
 
 
 if __name__ == '__main__':
-    app.run(SERVER_HOST, SERVER_PORT)
+    app.run(HOST, PORT)

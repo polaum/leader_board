@@ -1,1 +1,1 @@
-web: FLASK_APP=leaders_api.py flask run
+web: python3 ./leaders_api.py
