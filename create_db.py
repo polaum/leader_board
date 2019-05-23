@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Float
+from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Float,
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from settings import DB_URL
@@ -10,7 +10,8 @@ Session = sessionmaker(bind=engine)
 
 class User(Base):
     __tablename__ = 'leader_board'
-    user_name = Column(String, primary_key=True)
+    id = Column(Integer, primary_key=True)
+    user_name = Column(String)
     score = Column(Integer)
     items_shot = Column(Integer)
     time_played = Column(Float)
