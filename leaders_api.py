@@ -24,9 +24,9 @@ def getScores():
 @app.route('/isScoreEligible/<int:score>', methods=['GET'])
 def isScoreEligible(score):
     if is_score_eligible(score):
-        return "score is eligible", 200
+        return jsonify({ "message": "score is eligible" }), 200
     else:
-        return "score is not eligible", 400
+        return jsonify({ "message": "score is not eligible" }), 400
 
 
 @app.route('/addScore', methods=['POST'])
@@ -38,9 +38,9 @@ def addScore():
     timePlayed = body['timePlayed']
     try:
         add_score(userName, score, itemsShot, timePlayed)
-        return "score added!", 201
+        return jsonify({ "message": "score added!" }), 201
     except ScoreNotEligible:
-        return "Score not eligible to enter the leader board!", 400
+        return jsonify({ "message": "Score not eligible to enter the leader board!"}), 400
 
 
 if __name__ == '__main__':
