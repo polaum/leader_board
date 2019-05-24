@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 from leader_board_functions import add_score, get_leaders, _min_score, ScoreNotEligible, is_score_eligible
 
 from settings import HOST, PORT
 app = Flask(__name__)
-
+cors = CORS(app, resources={r"*": {"origins": "*"}})
 
 @app.route('/health')
 def health():
