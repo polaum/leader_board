@@ -9,7 +9,7 @@ cors = CORS(app, resources={r"*": {"origins": "*"}})
 
 @app.route('/health')
 def health():
-    return 'ok - leader board API', 200
+    return jsonify({ "message" : "ok - leader board API"}), 200
 
 
 @app.route('/getScores', methods=['GET'])
